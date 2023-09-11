@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Board extends JPanel implements ActionListener{
-    private final int B_WIDTH = 300; //defining the constants used in our game 
+    private final int B_WIDTH = 300; //defining the constants used in our game2
     private final int B_HEIGHT = 300; //B_WIDTH and B_HEIGHT --> size of the board 
     private final int DOT_SIZE = 10; // DOT_SIZE --> size of the apple and the dot of the snake
     private final int ALL_DOTS = 900;  // all_dots defines the maximum number of dots on the board (900)                            
@@ -198,37 +198,33 @@ public class Board extends JPanel implements ActionListener{
 
     private class TAdapter extends KeyAdapter{
         @Override
-        public void keyPressed(KeyEvent e){
+        public void keyPressed(KeyEvent e) {
             int key = e.getKeyCode();
-            if((key == KeyEvent.VK_LEFT) && (!rightDirection)){
-                leftDirection = true; 
+            if (key == KeyEvent.VK_LEFT && !rightDirection) {
+                leftDirection = true;
                 upDirection = false;
                 downDirection = false;
-
-            }
-                if((key == KeyEvent.VK_LEFT) && (!leftDirection)){
-                rightDirection = true; 
+            } else if (key == KeyEvent.VK_RIGHT && !leftDirection) {
+                rightDirection = true;
                 upDirection = false;
                 downDirection = false;
-
-            }
-                if((key == KeyEvent.VK_LEFT) && (!upDirection)){
-                leftDirection = false; 
-                rightDirection = false;
-                downDirection = true;
-
-            }
-                if((key == KeyEvent.VK_LEFT) && (!downDirection)){
-                leftDirection = true; 
+            } else if (key == KeyEvent.VK_UP && !downDirection) {
                 upDirection = true;
+                leftDirection = false;
                 rightDirection = false;
+            } else if (key == KeyEvent.VK_DOWN && !upDirection) {
+                downDirection = true;
+                leftDirection = false;
+                rightDirection = false;
+            }
+        }
 
             }
 
         }
-    }
+    
 
 
 
-    }
+    
       
